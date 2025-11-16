@@ -1,0 +1,319 @@
+Ecco il codice HTML completo per un sito web "minimalista" che funge da *prototipo* per la tua scuola di italiano.
+
+Ho inserito tutto il testo in **Urdu**, come richiesto, e ho impostato la direzione del testo da destra a sinistra (`dir="rtl"`), che è fondamentale per questa lingua.
+
+### Spiegazione Importante
+
+Questo codice è un file **HTML singolo**. Include la struttura (HTML), lo stile (CSS) e un po' di interattività (JavaScript).
+
+  * **Cosa funziona:** L'aspetto del sito, i link (che portano a sezioni diverse della pagina) e il modulo di registrazione (che mostrerà un messaggio di conferma).
+  * **Cosa NON funziona (e richiede un backend):**
+      * **Pagamento Online:** L'integrazione con sistemi di pagamento (come Stripe o PayPal) richiede un server sicuro (backend) e non può essere fatta solo con l'HTML.
+      * **Registrazione:** I dati del modulo vengono solo mostrati in un avviso; non vengono salvati in un database. Per salvarli, avresti bisogno di un backend (ad esempio, con PHP, Node.js o Python).
+
+-----
+
+### Codice Completo del Sito Web
+
+Puoi copiare e incollare tutto questo codice in un file, salvarlo come `index.html` e aprirlo in qualsiasi browser web per vederlo in azione.
+
+```html
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لندن میں اطالوی زبان سیکھیں</title>
+    <style>
+        /* --- Minimalist CSS Styling --- */
+        
+        /* Global Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Tahoma", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            direction: rtl; /* Direzione da destra a sinistra */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header e Navigazione */
+        header {
+            background: #006400; /* Verde bandiera italiana */
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            background: #333;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background: #555;
+        }
+
+        /* Sezioni */
+        section {
+            background: white;
+            margin: 1.5rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #CD212A; /* Rosso bandiera italiana */
+            border-bottom: 2px solid #f4f4f4;
+            padding-bottom: 10px;
+        }
+
+        /* Sezione Prezzi (Corsi) */
+        .price-box {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            width: 45%;
+            display: inline-block;
+            margin: 1%;
+            box-sizing: border-box; /* Assicura che padding e border siano inclusi nella larghezza */
+        }
+        
+        @media (max-width: 600px) {
+            .price-box {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #006400;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+            color: #777;
+        }
+
+        /* Modulo di Registrazione */
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="tel"],
+        form select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Importante per il padding */
+        }
+
+        form .payment-options {
+            border: 1px solid #eee;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        
+        form .payment-options label {
+            font-weight: normal;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        form button {
+            background: #CD212A; /* Rosso */
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        form button:hover {
+            background: #a81c22;
+        }
+
+        /* Sezione Lavoro */
+        .job-highlight {
+            background: #e6f7ff;
+            border-right: 5px solid #006400;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>لندن میں اطالوی زبان سیکھیں</h1>
+        <p>لندن میں مقیم پاکستانیوں کے لیے خصوصی اطالوی زبان کے کورسز</p>
+    </header>
+
+    <nav>
+        <a href="#courses">کورسز</a>
+        <a href="#exams">امتحانات</a>
+        <a href="#jobs">یورپ میں نوکری</a>
+        <a href="#register">رجسٹر کریں</a>
+    </nav>
+
+    <div class="container">
+
+        <section id="courses">
+            <h2>ہمارے کورسز اور قیمتیں</h2>
+            <p>ہم انفرادی اور گروپ کلاسز دونوں پیش کرتے ہیں، جو آپ کی ضروریات کے مطابق ہیں۔</p>
+            
+            <div class="price-box">
+                <h3>گروپ اسباق</h3>
+                <div class="price">£29 <span>/ فی گھنٹہ</span></div>
+                <p>چھوٹے گروپس میں سیکھیں اور دوسروں کے ساتھ مشق کریں۔</p>
+            </div>
+            
+            <div class="price-box">
+                <h3>انفرادی اسباق</h3>
+                <div class="price">£49 <span>/ فی گھنٹہ</span></div>
+                <p>صرف آپ پر مرکوز ذاتی توجہ اور تیز رفتار سیکھنے کا عمل۔</p>
+            </div>
+        </section>
+
+        <section id="exams">
+            <h2>رہائش اور شہریت کے لیے امتحانات</h2>
+            <p>ہمارے کورسز آپ کو اطالوی حکومت کے آفیشل امتحانات (A2/B1) کے لیے تیار کرتے ہیں۔</p>
+            <ul>
+                <li><strong>A2 سطح:</strong> طویل مدتی رہائشی اجازت نامے (Permesso di Soggiorno di Lungo Periodo) کے لیے ضروری ہے۔</li>
+                <li><strong>B1 سطح:</strong> اطالوی شہریت (Cittadinanza) حاصل کرنے کے لیے درکار ہے۔</li>
+            </ul>
+            <p>ہم آپ کو امتحان کی رجسٹریشن سے لے کر تیاری تک مکمل رہنمائی فراہم کریں گے۔</p>
+        </section>
+
+        <section id="jobs" class="job-highlight">
+            <h2>یورپ میں قانونی طور پر کام کریں</h2>
+            <p><strong>ہم صرف ایک زبان کا اسکول نہیں ہیں، ہم ایک جاب ایجنسی بھی ہیں۔</strong></p>
+            <p>ہمارے پاس پورے یورپ میں آجروں کے ساتھ روابط ہیں۔ کورس مکمل کرنے کے بعد، ہم آپ کو قانونی طور پر یورپ (اٹلی اور دیگر ممالک) میں ملازمت تلاش کرنے اور ورک ویزا کے عمل میں مدد فراہم کر سکتے ہیں۔</p>
+        </section>
+
+        <section id="register">
+            <h2>ابھی اپنے کورس کے لیے رجسٹر ہوں</h2>
+            <p>شروع کرنے کے لیے براہ کرم نیچے دیا گیا فارم پُر کریں۔ ہم جلد ہی آپ سے رابطہ کریں گے۔</p>
+            
+            <form id="registrationForm">
+                <div>
+                    <label for="name">پورا نام:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div>
+                    <label for="email">ای میل:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div>
+                    <label for="phone">فون نمبر:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div>
+                    <label for="course_type">کورس منتخب کریں:</label>
+                    <select id="course_type" name="course_type">
+                        <option value="group">گروپ اسباق (£29/گھنٹہ)</option>
+                        <option value="individual">انفرادی اسباق (£49/گھنٹہ)</option>
+                    </select>
+                </div>
+                
+                <div class="payment-options">
+                    <label><strong>ادائیگی کا طریقہ منتخب کریں:</strong></label>
+                    
+                    <label>
+                        <input type="radio" name="payment" value="online" checked>
+                        آن لائن ادائیگی (کریڈٹ/ڈیبٹ کارڈ)
+                        <br><small>(نوٹ: اس کے لیے اصل ویب سائٹ پر پےمنٹ گیٹ وے کی ضرورت ہوگی)</small>
+                    </label>
+                    
+                    <label>
+                        <input type="radio" name="payment" value="transfer">
+                        منی ٹرانسفر / بینک ٹرانسفر
+                        <br><small>(رجسٹریشن کے بعد ہم آپ کو تفصیلات بھیجیں گے)</small>
+                    </label>
+                    
+                    <label>
+                        <input type="radio" name="payment" value="cash">
+                        نقد ادائیگی
+                        <br><small>(کلاس میں ذاتی طور پر ادائیگی کریں)</small>
+                    </label>
+                </div>
+                
+                <button type="submit">رجسٹریشن مکمل کریں</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2025 لرن اطالوی لندن | جملہ حقوق محفوظ ہیں</p>
+        <p>Email: info@learnitalianlondon.uk | Phone: +44 20 1234 5678</p>
+    </footer>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            // Impedisce l'invio reale del modulo (che ricaricherebbe la pagina)
+            event.preventDefault();
+            
+            // Recupera il nome dell'utente
+            const name = document.getElementById('name').value;
+            
+            // Mostra un messaggio di conferma
+            // Questo è solo un esempio. In un sito reale, invieresti i dati a un server.
+            alert('شکریہ، ' + name + '!' + '\n\nآپ کی رجسٹریشن موصول ہو گئی ہے۔ ہم جلد ہی آپ سے ادائیگی کی تفصیلات اور کلاس کے شیڈول کے لیے رابطہ کریں گے۔');
+            
+            // Svuota il modulo (opzionale)
+            event.target.reset();
+        });
+    </script>
+
+</body>
+</html>
+```
